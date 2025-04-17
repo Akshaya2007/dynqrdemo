@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Shop QR Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Payment</title>
+  <link rel="stylesheet" href="styles.css">  <!-- Optional: You can link your CSS here -->
 </head>
 <body>
-  <div class="container">
-    <h1>QR Code Payment</h1>
-    <input type="number" id="amount" placeholder="Enter amount (NPR)">
-    <button onclick="generateQR()">Generate QR</button>
-    <div id="qr-box"></div>
-  </div>
+  <h1>QR Code Payment</h1>
+  <input type="number" id="amount" placeholder="Enter Amount" />
+  <button onclick="generateQRCode()">Generate QR</button>
+  
+  <div id="qr-box"></div> <!-- Where QR Code will be displayed -->
+  <div id="payment-status"></div> <!-- Status of Payment Verification -->
 
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Link to your JS -->
 </body>
 </html>
