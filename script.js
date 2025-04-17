@@ -6,7 +6,7 @@ async function generateQR() {
     return;
   }
 
-  const response = await fetch('https://your-backend-url.onrender.com/generateQR', {
+  const response = await fetch('https://dynqrdemo.onrender.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ amount })
