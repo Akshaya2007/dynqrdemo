@@ -14,30 +14,13 @@ const generateQRCode = async () => {
   });
 
   const data = await response.json();
-  
-  // Display the QR Code on the page
-  document.getElementById('qr-box').innerHTML = `<img src="${data.qrUrl}" alt="QR Code">`;
-  
-  // Optionally, implement payment verification
-  document.getElementById('payment-status').innerHTML = 'Payment in progress...';
-  setTimeout(() => {
-    verifyPayment('transactionId');  // Replace with actual transaction ID
-  }, 10000); // 10 seconds delay before verifying
-};
 
-// Function to verify payment status
-const verifyPayment = async (transactionId) => {
-  const response = await fetch('https://dynqrdemo.onrender.com/verifyPayment', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ transactionId })
-  });
+  console.log('QR Code URL:', data.qrUrl);  // Debugging line
 
-  const result = await response.json();
-
-  if (result.status === 'SUCCESS') {
-    document.getElementById('payment-status').innerHTML = 'Payment Successful';
+  if (data.qrUrl) {
+    // Display the QR Code on the page
+    document.getElementById('qr-box').innerHTML = `<img src="${data.qrUrl}" alt="QR Code">`;
   } else {
-    document.getElementById('payment-status').innerHTML = 'Payment Failed';
+    document.getElementById('qr-box').innerHTML = 'Failed to generate QR Code.';
   }
 };
